@@ -1,0 +1,11 @@
+# Dependencias generales (Cliente y Servidor)
+/node_modules
+
+# Carpetas de compilación
+/client/build
+/client/dist
+
+# Archivos sensibles (NO SUBIR)
+/server/.env 
+/server/wallet/ 
+/wallet/

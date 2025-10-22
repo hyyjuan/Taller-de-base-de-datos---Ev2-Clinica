@@ -1,0 +1,6 @@
+# Dependencias
+node_modules
+
+# Archivos sensibles (Redundante pero seguro)
+.env
+/wallet

@@ -1,0 +1,18 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8fafc;
+  margin: 0;
+  padding: 20px;
+}
+.container { max-width: 900px; margin: auto; }
+h1 { text-align: center; color: #003366; }
+.card { background: white; padding: 20px; margin: 20px 0; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+label { font-weight: bold; }
+input, button { padding: 8px; border-radius: 5px; border: 1px solid #ccc; }
+button { grid-column: span 2; background: #0078d4; color: white; border: none; cursor: pointer; }
+button:hover { background: #005fa3; }
+.msg { color: #006600; font-weight: bold; margin-top: 10px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+th { background: #0078d4; color: white; }
