@@ -1,0 +1,47 @@
+--------------------------------PREPARAR ENTORNO:
+
+Node.js (v18 o superior)
+
+Oracle Instant Client (si usas Windows o Linux)
+
+Visual Studio Code (opcional pero recomendado)
+
+--------------------------------server:
+npm init -y
+npm install express oracledb dotenv body-parser concurrently
+
+
+server/.env: DB_USER= userbd
+DB_PASS= passbd
+DB_TNS= tnsname_ora _high
+DB_WALLET_DIR= D:/wallet
+DB_WALLET_PASS='passwallet
+PORT=4000
+
+CORRER SERVIDOR "node server.js"
+
+-------------------------------cliente:
+
+
+en repertorio principal:
+npx create-react-app client
+
+una vez dentro de client:
+npm install
+
+
+
+////MODIFICACION EN EL RUN DEL ORACLE CLIENT (SOLUCION AL PROBLEMA AL CONECTAR CON EL WALLET)
+
+try {
+
+  if (typeof oracledb === 'undefined') {
+    console.log('Oracle DB client no encontrado, instalando...');
+    require('oracledb').initOracleClient();
+  } else {
+    console.log('Oracle DB client ya está inicializado.');
+  }
+} catch (e) {
+  console.log('Error al inicializar el cliente Oracle: ', e);
+}
+
