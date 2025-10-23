@@ -9,9 +9,14 @@ app.use(bodyParser.json());
 process.env.TNS_ADMIN = process.env.DB_WALLET_DIR;
 
 try {
-  oracledb.initOracleClient();
+  if (typeof oracledb === 'undefined') {
+    console.log('Oracle DB client no encontrado, instalando...');
+    require('oracledb').initOracleClient();
+  } else {
+    console.log('Oracle DB client ya está inicializado.');
+  }
 } catch (e) {
-  console.log('Oracle client no requerido o ya inicializado.');
+  console.log('Error al inicializar el cliente Oracle: ', e);
 }
 
 const poolConfig = {
@@ -29,9 +34,9 @@ const poolConfig = {
 async function start() {
   try {
     await oracledb.createPool(poolConfig);
-    console.log('✅ Conectado a Oracle Autonomous con wallet.');
+    console.log(' Conectado a Oracle Autonomous con wallet.');
   } catch (err) {
-    console.error('❌ Error creando pool Oracle:', err);
+    console.error(' Error creando pool Oracle:', err);
     process.exit(1);
   }
 
